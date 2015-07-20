@@ -1,6 +1,13 @@
-<!-- Include jQuery, jQuery UI, elFinder (REQUIRED) -->
+<?php
+use \yii\helpers\Json;
+use \yii\helpers\Url;
+\yii\web\JqueryAsset::register($this);
+\mihaildev\elfinder\Assets::register($this);
+\mihaildev\elfinder\Assets::noConflict($this);
 
-<script type="text/javascript">
+$url = Json::encode(Url::to(['/elfinder/path/connect']));
+$this->registerJs(
+<<<JS
     var FileBrowserDialogue = {
         init: function() {
             // Here goes your code for setting your custom things onLoad.
@@ -12,12 +19,12 @@
             // close popup window
             parent.tinymce.activeEditor.windowManager.close();
         }
-    }
+    };
 
     $().ready(function() {
         var elf = $('#elfinder').elfinder({
             // set your elFinder options here
-            url: <?= \yii\helpers\Json::encode(\yii\helpers\Url::to(['/elfinder/path'])) ?>,  // connector URL
+            url: $url,  // connector URL
             getFileCallback: function(file) { // editor callback
                 // file.url - commandsOptions.getfile.onlyURL = false (default)
                 // file     - commandsOptions.getfile.onlyURL = true
@@ -25,4 +32,7 @@
             }
         }).elfinder('instance');
     });
-</script>
+JS
+    , \yii\web\View::POS_READY);
+?>
+<div id="elfinder"></div>

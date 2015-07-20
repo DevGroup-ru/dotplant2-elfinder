@@ -1,11 +1,12 @@
 <?php
 
-namespace controllers;
+namespace DotPlant\ElFinder\controllers;
 
+use app\backend\components\BackendController;
 use Yii;
-use yii\web\Controller;
 
-class FrameController extends Controller
+
+class FrameController extends BackendController
 {
 
     public function actionIndex()
