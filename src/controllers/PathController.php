@@ -66,4 +66,9 @@ class PathController extends \mihaildev\elfinder\Controller
 
         return parent::beforeAction($action);
     }
+
+    public function actionManager()
+    {
+        return $this->renderAjax('manager', ['options' => $this->getManagerOptions()]);
+    }
 }
