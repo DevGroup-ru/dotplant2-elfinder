@@ -13,4 +13,5 @@ class FrameController extends BackendController
     {
         return $this->renderAjax('index');
     }
+
 }
