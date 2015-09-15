@@ -25,7 +25,11 @@ class ConfigurationModel extends BaseConfigurationModel
     public function webApplicationAttributes()
     {
         return [
-
+            'modules' => [
+                'elfinder' => [
+                    'class' => 'DotPlant\ElFinder\Module',
+                ],
+            ],
         ];
     }
 
@@ -51,11 +55,7 @@ class ConfigurationModel extends BaseConfigurationModel
     public function commonApplicationAttributes()
     {
         return [
-            'modules' => [
-                'elfinder' => [
-                    'class' => 'DotPlant\ElFinder\Module',
-                ],
-            ],
+            
         ];
     }
 
