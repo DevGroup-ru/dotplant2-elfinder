@@ -9,7 +9,7 @@ class DropzoneController extends PathController
 {
     public $roots = [
         [
-            'baseUrl' => '@web',
+            'baseUrl' => '@web/files',
             'basePath' => '@webroot/files/',
             'path' => '',
             'name' => 'Global',
